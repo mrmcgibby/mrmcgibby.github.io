@@ -54,6 +54,7 @@ function append(div, tree, widthfirst) {
 	var ndiv = $("<div></div>").appendTo(div);
 	if (node.name) {
 	    $("<div></div>").appendTo(ndiv).addClass("subleaf").html(node.name);
+	    ndiv.attr("person", node.name);
 	}
 	if (widthfirst) {
 	    ndiv.css("float","left");

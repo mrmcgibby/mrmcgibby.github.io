@@ -1,3 +1,7 @@
+var cities = {};
+var values = {};
+var states = {};
+
 $(document).ready(function() {
     var data = [
 	[
@@ -29,6 +33,16 @@ $(document).ready(function() {
     ];
     setData(data);
 
+    // opentip
+    Opentip.styles.person = { 
+	stem: false,
+	borderColor: "black",
+	borderWidth: 1,
+	background: "#f2f2f2",
+	fixed: true
+    };
+    Opentip.defaultStyle = "person"
+
     google.load("visualization", "1", {packages:["treemap"], callback: function() {
 	console.log(google.visualization.Query);
 	var spread = 'https://docs.google.com/spreadsheet/ccc?key=0AjuCCsEokTDhdEptX3g0YVZFeHBuNWhTUWh1SE9mdVE#gid=0';
@@ -41,14 +55,29 @@ $(document).ready(function() {
 	    
 	    var outdata = [];
 	    for (var r = 1; r < data.getNumberOfRows(); r++) {
-		var item = {}
-		item.name = data.getValue(r, 0);
-		item.value = data.getValue(r, 2)
-		if (item.name) {
-		    outdata.push(item);
-		    console.log(item.name + ":" + item.value);
+		var name = data.getValue(r, 0);
+		if (name) {
+		    var value = data.getValue(r, 2);
+		    values[name] = value;
+		    var city = data.getValue(r, 7);
+		    cities[name] = city;
+		    var state = data.getValue(r, 8);
+		    states[name] = state;
 		}
 	    }
+
+	    $(".leaf").each(function() {
+		total = _.reduce(_.values(values), function (a,b) { return a+b; });
+		var name = $(this).attr("person");
+		var value = values[name];
+		var city = cities[name];
+		var state = states[name];
+		var text = "<strong>"+name+"</strong><br>"+
+		    "Pledged: $"+value+"<br>"+
+		    "Owns: "+Math.round(value/total*1000)/10+"%<br>"+
+		    "From: "+city+", "+state;
+		$(this).opentip(text, { delay: 0.5 });
+	    });
 	    //setData(outdata);
 	});
     }});
@@ -64,8 +93,6 @@ function setData(data) {
 	$(this).addClass("leaf-highlight");
     }).mouseleave(function() {
 	$(this).removeClass("leaf-highlight");
-    }).click(function() {
-	
     });
 }
 
