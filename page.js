@@ -75,7 +75,7 @@ $(document).ready(function() {
 	    $("#total_worth").html("$"+total);
 	    $("#sq_in_worth").html("$"+Math.round(total / 5250 * 100)/100);
 	    $("#total_backers").html(outdata.length);
-	    $("#days_remain").html(Math.floor((Date.parse("Apr 18, 2015")-Date.now())/1000/60/60/24));
+	    $("#days_remain").html(Math.floor((Date.parse("Apr 18, 2015 8:59 AM MDT")-Date.now())/1000/60/60/24));
 	    outdata = _.sortBy(outdata, function(x) { return -x.value; });
 	    console.log(JSON.stringify(outdata));
 
