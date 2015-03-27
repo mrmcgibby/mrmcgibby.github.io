@@ -1,6 +1,7 @@
-function Box(x, y){
+function Box(x, y, name){
     this.x = x;
     this.y = y;
+    this.name = name;
     this.isleaf = function() {
 	return $.isNumeric(x) && $.isNumeric(y);
     }
@@ -16,6 +17,12 @@ function testmap(treemap) {
     });
 }
 
+function Person(obj) {
+    var pair = _.pairs(obj)[0];
+    this.name = pair[0];
+    this.value = pair[1];
+}
+
 function treemap(tree, x, y, xfirst) {
     var ratio = (xfirst ? x : y) / size(tree);
     return _.map(tree, function (node) {
@@ -29,10 +36,11 @@ function treemap(tree, x, y, xfirst) {
 		return new Box(x, tm);
 	    }
 	} else {
+	    var person = new Person(node);
 	    if (xfirst) {
-		return new Box(node * ratio, y);
+		return new Box(person.value * ratio, y, person.name);
 	    } else {
-		return new Box(x, node * ratio);
+		return new Box(x, person.value * ratio, person.name);
 	    }
 	}
     });
@@ -43,7 +51,8 @@ function size(node) {
 	if (node instanceof Array) {
 	    return memo + size(node);
 	} else {
-	    return memo + node;
+	    var person = new Person(node)
+	    return memo + person.value;
 	}
     }, 0);
 }
@@ -89,25 +98,10 @@ $(document).ready(function() {
 	}
     });
 
-    editor.setValue(JSON.stringify(
-	[
-	    1,
-	    2,
-	    3,
-	    [
-		2,
-		3,
-		[
-		    1,
-		    [
-		        1,
-		        2,
-		        3],
-		    1
-		],
-		4
-	    ],
-	5
+    editor.setValue(JSON.stringify([
+	{"mike":60},
+	{"jon":35},
+	{"lisa":60},
     ], null, "\t"));
 
 });
