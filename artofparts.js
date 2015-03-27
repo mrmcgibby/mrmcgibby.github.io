@@ -60,6 +60,9 @@ function size(node) {
 function append(div, tree, widthfirst) {
     _.each(tree, function (node) {
 	var ndiv = $("<div></div>").appendTo(div);
+	if (node.name) {
+	    ndiv.html(node.name);
+	}
 	if (widthfirst) {
 	    ndiv.css("float","left");
 	}
