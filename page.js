@@ -57,11 +57,13 @@ $(document).ready(function() {
 	    var data = response.getDataTable();
 	    
 	    outdata = [];
+	    var total = 0;
 	    for (var r = 1; r < data.getNumberOfRows(); r++) {
 		var name = data.getValue(r, 0);
 		if (name) {
 		    var value = data.getValue(r, 2);
 		    values[name] = value;
+		    total += value;
 		    var city = data.getValue(r, 7);
 		    cities[name] = city;
 		    var state = data.getValue(r, 8);
@@ -70,6 +72,9 @@ $(document).ready(function() {
 		    outdata.push({name:name,value:value});
 		}
 	    }
+	    $("#total_worth").html("$"+total);
+	    $("#sq_in_worth").html("$"+Math.round(total / 5250 * 100)/100);
+	    $("#total_backers").html(outdata.length);
 	    outdata = _.sortBy(outdata, function(x) { return -x.value; });
 	    console.log(JSON.stringify(outdata));
 
