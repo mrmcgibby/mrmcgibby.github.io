@@ -97,9 +97,9 @@ function setData(data) {
     append(div, t);
 
     $(".leaf").mouseenter(function() {
-	$(this).addClass("leaf-highlight");
+	$(this).addClass("leaf-highlight").animate({opacity:0.0});
     }).mouseleave(function() {
-	$(this).removeClass("leaf-highlight");
+	$(this).removeClass("leaf-highlight").animate({opacity:0.8});
     });
 }
 
