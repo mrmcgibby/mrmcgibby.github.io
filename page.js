@@ -6,28 +6,31 @@ $(document).ready(function() {
     var data = [
 	[
 	    [
-		{name:"rsmith",value:510}
+		{"name":"rsmith","value":510}
 	    ],
 	    [
-		{name:"chilton",value:150},
-		{name:"tmerrill",value:110},
-		{name:"hollyl",value:110}
+		{"name":"shawnN","value":260},
+		{"name":"chilton","value":150}
 	    ],
 	    [
-		{name:"mdtommyd",value:60},
-		{name:"joshg",value:60},
-		{name:"mchackett",value:60},
-		{name:"clarkh",value:60}
+		{"name":"tmerrill","value":110},
+		{"name":"hollyl","value":110}
 	    ],
 	    [
-		{name:"jkelly",value:60},
-		{name:"garyl",value:60},
-		{name:"sean",value:60}
+		{"name":"mdtommyd","value":60},
+		{"name":"joshg","value":60},
+		{"name":"mchackett","value":60}
 	    ],
 	    [
-		{name:"aneubert",value:35},
-		{name:"lhealy",value:35},
-		{name:"rchrastil",value:35}
+		{"name":"clarkh","value":60},
+		{"name":"jkelly","value":60},
+		{"name":"garyl","value":60}
+	    ],
+	    [
+		{"name":"sean","value":60},
+		{"name":"lhealy","value":35},
+		{"name":"rchrastil","value":35},
+		{"name":"aneubert","value":35}
 	    ]
 	]
     ];
@@ -53,7 +56,7 @@ $(document).ready(function() {
 	    }
 	    var data = response.getDataTable();
 	    
-	    var outdata = [];
+	    outdata = [];
 	    for (var r = 1; r < data.getNumberOfRows(); r++) {
 		var name = data.getValue(r, 0);
 		if (name) {
@@ -63,8 +66,12 @@ $(document).ready(function() {
 		    cities[name] = city;
 		    var state = data.getValue(r, 8);
 		    states[name] = state;
+		    //console.log('{"name":"%s","value":"%s"},\n', name, value);
+		    outdata.push({name:name,value:value});
 		}
 	    }
+	    outdata = _.sortBy(outdata, function(x) { return -x.value; });
+	    console.log(JSON.stringify(outdata));
 
 	    $(".leaf").each(function() {
 		total = _.reduce(_.values(values), function (a,b) { return a+b; });
