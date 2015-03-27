@@ -1,197 +1,51 @@
 <html>
-<head>
-<title>Art of Parts</title>
-<meta name="description" content="Buy a part of art and belong to a whole." />
-<meta name="keywords" content="art, parts, crowdsourced, crowdsourcing, cut, part, piece, percentage, fine art, fine arts, kickstarter, proportion, share, percent, percentage, cutting, mural, map, lines" />
-<link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-<style>
-img {
-    display: block;
-    position: absolute;
-    top: 255px;
-    z-index: -1;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 9px;
-    padding-left:5px;
-}
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1265px;
+  <head>
+    <title>Art of Parts</title>
+    <meta name="description" content="Buy a part of art and belong to a whole." />
+    <meta name="keywords" content="art, parts, crowdsourced, crowdsourcing, cut, part, piece, percentage, fine art, fine arts, kickstarter, proportion, share, percent, percentage, cutting, mural, map, lines" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href='page.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="underscore.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="tree.js"></script>
+    <script src="page.js"></script>
+  </head>
+  <body>
     
-}
-
-.links {
-	font-family:Oswald;
-	font-size:14px;
-	font-weight:300;
-	margin-top:55px;
-}
-
-.header {
-	font-family:Oswald;
-	font-size:14px;
-	font-weight:300;
-}
-
-.numbers {
-	font-family:Oswald;
-	font-size:50px;
-	font-weight:300;
-	margin-top:0px;
-}
-
-.links2 {
-	margin-top:28px;
-	margin-bottom:40px;
-}
-
-.logo {
-	background-image: url('logo.jpg');
-	width:256px;
-	height:95px;
-	margin-left: auto;
-    margin-right: auto;
-    margin-top:43px;
-    margin-bottom:50px;
-}
-
-.inch {
-	background-image: url('inch.jpg');
-	width:11px;
-	height:11px;
-	
-
-}
-
-a { 
-color: black; 
-text-decoration: none;
-}
-
-a:hover {
-    color: #929292; 
-}
-
-
-</style>
-
-
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-google.load("visualization", "1", {packages:["treemap"]});
-google.setOnLoadCallback(drawChart);
-
-
-
-function drawChart() {
-  var query = new google.visualization.Query(
-      'https://docs.google.com/spreadsheet/ccc?key=0AjuCCsEokTDhdEptX3g0YVZFeHBuNWhTUWh1SE9mdVE#gid=0');
-  query.send(handleQueryResponse);
-}
-
-
-
-function handleQueryResponse(response) {
-  if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-    return;
-  }
-
-
-
-  var data = response.getDataTable();
-  
-  
-  
-  tree = new google.visualization.TreeMap(document.getElementById('treemap'));
-
-var myNum = 25;
-
-  tree.draw(data, {
-      minColor: '#a2a2a2',
-      midColor: '#a2a2a2',
-      maxColor: '#a2a2a2',
-      headerHeight: 0,
-      fontColor: 'black',
-      fontSize: '12',
-      showScale: false,
-      fontFamily: 'Oswald',
-      generateTooltip: showFullTooltip
+    <div class="center">
+      <p align="center" class="links">
+	<a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;
+	<a href="about.html">About</a>&nbsp;&nbsp;&nbsp;
+	<a href="https://www.kickstarter.com/projects/445149253/art-of-parts-a-crowdsourced-art-project">Kickstarter</a>&nbsp;&nbsp;&nbsp;
+	<a href="https://www.kickstarter.com/projects/445149253/art-of-parts-a-crowdsourced-art-project">Buy a part!</a>&nbsp;&nbsp;&nbsp;
+	<a href="https://www.facebook.com/artofparts">Facebook</a>
+      </p>
       
-    });
-    
-  
-    
-    function showFullTooltip(row, size, value) {
-    return '<div style="background:#fff; padding:15px; border-style: solid; border-width: 1px; border-color: #a2a2a2;">' +
-           '<span style="font-family:Oswald; font-size:20px; font-weight:300;"><strong>'
-            + data.getValue(row, 0) +
-           '</strong>' + '<br>' + 'Pledged: $' + data.getValue(row, 2) + '<br>' + 
-           'Owns: ' + data.getValue(row, 4) + '%' + '<br>' + 
-           'From: ' + data.getValue(row, 7) + ', ' + data.getValue(row, 8) + '<br>' + 
-            data.getValue(row, 6) + '<br>' + '</span></div>';
- 
-  }
-}
-
-function myNumbers() {
-return '<div style="background:#fff; padding:15px; border-style: solid; border-width: 1px; border-color: #a2a2a2;">' +
-           '<span style="font-family:Oswald; font-size:20px; font-weight:300;"><b>'
-            + data.getValue(row, 0) + '</span></div>';
-
-}
-
-
-
-</script>
-
-<title>Data from a Spreadsheet</title>
-</head>
-
-<body>
-
-<div class="center">
-<p align="center" class="links"><a href="index.html">Home</a>&nbsp;&nbsp;&nbsp;<a href="about.html">About</a>&nbsp;&nbsp;&nbsp;<a href="https://www.kickstarter.com/projects/445149253/art-of-parts-a-crowdsourced-art-project">Kickstarter</a>&nbsp;&nbsp;&nbsp;<a href="https://www.kickstarter.com/projects/445149253/art-of-parts-a-crowdsourced-art-project">Buy a part!</a>&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/artofparts">Facebook</a></p>
-
-<a href="index.html"><div class="logo"></div></a>
-
-<div id="treemap" style="width: 1285px; height: 428px; opacity: 0.8;"></div>
-
-<img src="background.jpg" width="1268px" height="425px" id="myimg">
-
-<p align="center" class="links2">
-<span class="links">Total painting size:</span>
-<span class="numbers">125"x42"</span>&nbsp;
-<span class="links">Total painting worth:</span>
-<span class="numbers">$895</span>&nbsp;&nbsp;
-<span class="links">Each sq. in. worth:</span>
-<span class="numbers">$.17</span>&nbsp;
-<span class="links">Total number of backers:</span>
-<span class="numbers">13</span>&nbsp;&nbsp;
-<span class="links">Days to go:</span>
-<span class="numbers">22</span>&nbsp;&nbsp;
-</p>
-<!--<div style="background-image: url('background.jpg'); background-repeat: no-repeat; width: 1000px; height: 500px;"></div>-->
-
-
-
-<p align="center">
-
+      <a href="index.html"><div class="logo"></div></a>
+      
+      <div id="treemap" style="margin-left:5px; width: 1268px; height: 425px; opacity: 0.8;"></div>
+      <img src="background.jpg" width="1268px" height="425px" id="myimg">
+      
+      <p align="center" class="links2">
+	<span class="links">Total painting size:</span>
+	<span class="numbers">125"x42"</span>&nbsp;
+	<span class="links">Total painting worth:</span>
+	<span class="numbers">$895</span>&nbsp;&nbsp;
+	<span class="links">Each sq. in. worth:</span>
+	<span class="numbers">$.17</span>&nbsp;
+	<span class="links">Total number of backers:</span>
+	<span class="numbers">13</span>&nbsp;&nbsp;
+	<span class="links">Days to go:</span>
+	<span class="numbers">22</span>&nbsp;&nbsp;
+      </p>
+      <!--<div style="background-image: url('background.jpg'); background-repeat: no-repeat; width: 1000px; height: 500px;"></div>-->
+      
+      <p align="center">	
 	<input type="button" value="VIEW THE IMAGE" onclick="document.getElementById('myimg').style.zIndex='1';">
-	<input type="button" value="VIEW THE DISTRIBUTION" onclick="document.getElementById('myimg').style.zIndex='-1';">
-
-</p>
-</div>
-</br>
-</br>
-</br>
-</br>
-
-
-</body>
+	<input type="button" value="VIEW THE DISTRIBUTION" onclick="document.getElementById('myimg').style.zIndex='-1';">	
+      </p>
+    </div>
+  </body>
 </html>
