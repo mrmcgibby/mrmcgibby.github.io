@@ -294,6 +294,20 @@ class box {
 						os << attr("stroke", "black");
 						os << "/>\n";
 					}
+					os << "  <line ";
+					os << attr("x1", m_desired[i][0]+offset[0]);
+					os << attr("y1", m_desired[i][1]+offset[1]);
+					os << attr("x2", m_origin[0]+m_extent[0]/2+offset[0]);
+					os << attr("y2", m_origin[1]+m_extent[1]/2+offset[1]);
+					os << attr("stroke", "black");
+					os << "/>";
+
+					os << "  <circle ";
+					os << attr("cx", m_origin[0]+m_extent[0]/2+offset[0]);
+					os << attr("cy", m_origin[1]+m_extent[1]/2+offset[1]);
+					os << attr("r", 5);
+					os << attr("stroke", "black");
+					os << "/>\n";
 				}
 			} else {
 				for (int i = 0; i < m_children.size(); ++i) {
