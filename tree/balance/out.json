@@ -1,0 +1,46 @@
+[
+  [
+    { "name":"jkelly","value": 60 }
+  ],
+  [
+    [
+      { "name":"lhealy","value": 35 },
+      { "name":"mchackett","value": 60 },
+      { "name":"clarkh","value": 60 },
+      { "name":"aneubert","value": 35 }
+    ],
+    [
+      [
+        [
+          [
+            { "name":"shawnN","value": 260 },
+            { "name":"mdtommyd","value": 110 }
+          ],
+          [
+            { "name":"joshg","value": 60 },
+            { "name":"hollyl","value": 110 }
+          ]
+        ],
+        [
+          { "name":"tmerrill","value": 110 },
+          { "name":"chilton","value": 150 }
+        ]
+      ],
+      [
+        [
+          { "name":"rsmith","value": 510 }
+        ],
+        [
+          [
+            { "name":"rchrastil","value": 35 },
+            { "name":"dmoore","value": 60 }
+          ],
+          [
+            { "name":"sean","value": 60 },
+            { "name":"garyl","value": 60 }
+          ]
+        ]
+      ]
+    ]
+  ]
+]
