@@ -117,15 +117,6 @@ class box {
 			return (m_dimension + change) % dimensions;
 		}
 
-		void clear() {
-			m_children.clear();
-			m_size = 0;
-			m_origin = point();
-			m_extent = point();
-			m_dimension = 0;
-			m_desired.clear();
-		}
-    
         void split(size_t index) {
 			box b[2];
 			size_t n = 0;
@@ -135,7 +126,9 @@ class box {
 				}
 				b[n].add(child(i));
 			}
-			clear();
+			m_children.clear();
+			m_size = 0;
+			m_desired.clear();
 			add(b[0]);
 			add(b[1]);
         }
