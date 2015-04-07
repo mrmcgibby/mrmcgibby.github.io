@@ -3,113 +3,88 @@ var values = {};
 var states = {};
 
 $(document).ready(function() {
-    var data = [
-	[
-	    [
-		{"name":"rsmith","value":510}
-	    ],
-	    [
-		{"name":"shawnN","value":260},
-		{"name":"chilton","value":150}
-	    ],
-	    [
-		{"name":"tmerrill","value":110},
-		{"name":"hollyl","value":110}
-	    ],
-	    [
-		{"name":"mdtommyd","value":60},
-		{"name":"joshg","value":60},
-		{"name":"mchackett","value":60}
-	    ],
-	    [
-		{"name":"clarkh","value":60},
-		{"name":"jkelly","value":60},
-		{"name":"garyl","value":60}
-	    ],
-	    [
-		{"name":"sean","value":60},
-		{"name":"lhealy","value":35},
-		{"name":"rchrastil","value":35},
-		{"name":"aneubert","value":35}
-	    ]
-	]
-    ];
-    setData(data);
+    $.getJSON("tree/balance/flat.json", function (data) {
+	setData(data);
 
-    // opentip
-    Opentip.styles.person = { 
-	stem: false,
-	borderColor: "black",
-	borderWidth: 1,
-	background: "#f2f2f2",
-	fixed: true
-    };
-    Opentip.defaultStyle = "person"
-
-    google.load("visualization", "1", {packages:["treemap"], callback: function() {
-	console.log(google.visualization.Query);
-	var spread = 'https://docs.google.com/spreadsheet/ccc?key=0AjuCCsEokTDhdEptX3g0YVZFeHBuNWhTUWh1SE9mdVE#gid=0';
-	var query = new google.visualization.Query(spread);	    
-	query.send(function(response) {
-	    if (response.isError()) {
-		return;
-	    }
-	    var data = response.getDataTable();
-	    
-	    outdata = [];
-	    var total = 0;
-	    for (var r = 1; r < data.getNumberOfRows(); r++) {
-		var name = data.getValue(r, 0);
-		if (name) {
-		    var value = data.getValue(r, 2);
-		    values[name] = value;
-		    total += value;
-		    var city = data.getValue(r, 7);
-		    cities[name] = city;
-		    var state = data.getValue(r, 8);
-		    states[name] = state;
-		    //console.log('{"name":"%s","value":"%s"},\n', name, value);
-		    outdata.push({name:name,value:value});
+	// opentip
+	Opentip.styles.person = { 
+	    stem: false,
+	    borderColor: "black",
+	    borderWidth: 1,
+	    background: "#f2f2f2",
+	    fixed: true
+	};
+	Opentip.defaultStyle = "person"
+	
+	google.load("visualization", "1", {packages:["treemap"], callback: function() {
+	    console.log(google.visualization.Query);
+	    var spread = 'https://docs.google.com/spreadsheet/ccc?key=0AjuCCsEokTDhdEptX3g0YVZFeHBuNWhTUWh1SE9mdVE#gid=0';
+	    var query = new google.visualization.Query(spread);	    
+	    query.send(function(response) {
+		if (response.isError()) {
+		    return;
 		}
-	    }
-	    $("#total_worth").html("$"+total);
-	    $("#sq_in_worth").html("$"+Math.round(total / 5250 * 100)/100);
-	    $("#total_backers").html(outdata.length);
-	    $("#days_remain").html(Math.floor((Date.parse("Apr 18, 2015 8:59 AM MDT")-Date.now())/1000/60/60/24));
-	    outdata = _.sortBy(outdata, function(x) { return -x.value; });
-	    console.log(JSON.stringify(outdata));
+		var data = response.getDataTable();
+		
+		outdata = [];
+		var total = 0;
+		for (var r = 1; r < data.getNumberOfRows(); r++) {
+		    var name = data.getValue(r, 0);
+		    if (name) {
+			var value = data.getValue(r, 2);
+			values[name] = value;
+			total += value;
+			var city = data.getValue(r, 7);
+			cities[name] = city;
+			var state = data.getValue(r, 8);
+			states[name] = state;
+			//console.log('{"name":"%s","value":"%s"},\n', name, value);
+			outdata.push({name:name,value:value});
+		    }
+		}
+		$("#total_worth").html("$"+total);
+		$("#sq_in_worth").html("$"+Math.round(total / 5250 * 100)/100);
+		$("#total_backers").html(outdata.length);
+		$("#days_remain").html(Math.floor((Date.parse("Apr 18, 2015 8:59 AM MDT")-Date.now())/1000/60/60/24));
+		outdata = _.sortBy(outdata, function(x) { return -x.value; });
+		console.log(JSON.stringify(outdata));
 
-	    $(".leaf").each(function() {
-		total = _.reduce(_.values(values), function (a,b) { return a+b; });
-		var name = $(this).attr("person");
-		var value = values[name];
-		var city = cities[name];
-		var state = states[name];
-		var text = "<strong>"+name+"</strong><br>"+
-		    "Pledged: $"+value+"<br>"+
-		    "Owns: "+Math.round(value/total*1000)/10+"%<br>"+
-		    "From: "+city+", "+state;
-		$(this).opentip(text, { delay: 0.5 });
+		$(".leaf").each(function() {
+		    total = _.reduce(_.values(values), function (a,b) { return a+b; });
+		    var name = $(this).attr("person");
+		    var value = values[name];
+		    var city = cities[name];
+		    var state = states[name];
+		    var text = "<strong>"+name+"</strong><br>"+
+			"Pledged: $"+value+"<br>"+
+			"Owns: "+Math.round(value/total*1000)/10+"%<br>"+
+			"From: "+city+", "+state;
+		    $(this).opentip(text, { delay: 0.5 });
+		});
 	    });
-	    //setData(outdata);
-	});
-    }});
+	}});
+    });
 });
 
 function setData(data) {
-    var div = $("#treemap");
-    var t = treemap(data, div.width(), div.height());
-    div.html("");
-    append(div, t);
+    $("#treemap").html("").css({position:'relative'});
+    _.each(data, function (box) {
+	var ndiv = $("<div></div>").appendTo($("#treemap"));
+	ndiv.addClass("leaf");
+	$("<div></div>").appendTo(ndiv).addClass("subleaf").html(box.name);
+	ndiv.css({left:box.x,top:box.y,position:'absolute'});
+	ndiv.width(box.width-2).height(box.height-2);
+	ndiv.attr("person", box.name);
+    });
+
+//    var t = treemap(data, div.width(), div.height());
+//    append(div, t);
 
     $(".leaf").mouseenter(function() {
 	$(this).addClass("leaf-highlight").animate({opacity:0.0});
     }).mouseleave(function() {
 	$(this).removeClass("leaf-highlight").animate({opacity:0.8});
     });
-}
-
-function oldload() {
 }
 
 function drawChart() {

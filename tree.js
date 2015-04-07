@@ -39,6 +39,15 @@ function treemap(tree, x, y, xfirst) {
     });
 }
 
+function desired(node, xfirst) {
+    var p = node.points[0];
+    return xfirst ? p.x : p.y;
+}
+
+function actual(node, xfirst) {
+    return xfirst ? node.x : node.y;
+}
+
 function size(node) {
     return _.reduce(node, function (memo, node) {
 	if (node instanceof Array) {
@@ -71,5 +80,28 @@ function append(div, tree, widthfirst) {
 		ndiv.height(node.y[0].y);
 	    }
 	}
+    });
+}
+
+function rand(a, b) {
+    a = a || 0;
+    b = b || 0;
+    var low = Math.min(a,b);
+    var high = Math.max(a,b);
+    var r = Math.random();
+    return low+r*r*r*(high-low);
+}
+
+function random_data(count) {
+    return _.map(_.range(count), function(index) {
+	return {
+	    name:"box"+index,
+	    value:Math.floor(rand(20, 100)),
+	    points:[
+		{x:Math.random(),y:Math.random()},
+		{x:Math.random(),y:Math.random()},
+		{x:Math.random(),y:Math.random()}
+	    ]
+	};
     });
 }
