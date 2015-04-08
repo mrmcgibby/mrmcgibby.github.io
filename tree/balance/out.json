@@ -1,18 +1,34 @@
 [
-  { "name":"mdtommyd","value": 110 },
-  { "name":"lhealy","value": 35 },
-  { "name":"joshg","value": 60 },
-  { "name":"tmerrill","value": 110 },
-  { "name":"mchackett","value": 60 },
-  { "name":"rchrastil","value": 35 },
-  { "name":"hollyl","value": 110 },
-  { "name":"clarkh","value": 60 },
-  { "name":"jkelly","value": 60 },
-  { "name":"chilton","value": 150 },
-  { "name":"aneubert","value": 35 },
-  { "name":"garyl","value": 60 },
-  { "name":"sean","value": 60 },
-  { "name":"rsmith","value": 510 },
-  { "name":"shawnN","value": 260 },
-  { "name":"dmoore","value": 60 }
+  { "name":"shawnN","dimension": 1,"value": 260 },
+  [
+    [
+      { "name":"chilton","dimension": 1,"value": 150 },
+      { "name":"sean","dimension": 1,"value": 60 },
+      { "name":"tmerrill","dimension": 1,"value": 110 },
+      { "name":"joshg","dimension": 1,"value": 60 },
+      [
+        { "name":"rchrastil","dimension": 0,"value": 35 },
+        { "name":"lhealy","dimension": 0,"value": 35 }
+      ]
+    ],
+    [
+      [
+        { "name":"jkelly","dimension": 0,"value": 60 },
+        { "name":"dmoore","dimension": 0,"value": 60 }
+      ],
+      [
+        [
+          { "name":"aneubert","dimension": 1,"value": 35 },
+          { "name":"clarkh","dimension": 1,"value": 60 }
+        ],
+        { "name":"hollyl","dimension": 0,"value": 110 }
+      ],
+      { "name":"mdtommyd","dimension": 1,"value": 150 },
+      [
+        { "name":"garyl","dimension": 0,"value": 60 },
+        { "name":"mchackett","dimension": 0,"value": 60 }
+      ]
+    ]
+  ],
+  { "name":"rsmith","dimension": 1,"value": 510 }
 ]

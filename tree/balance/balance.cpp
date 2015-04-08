@@ -40,7 +40,14 @@ string json_field(string name, const char* value) {
 class box {
 	public:
 		typedef array<double, dimensions> point;
-		box(double size = 0, string name = string()) :
+
+		box() :
+			m_size(0),
+			m_dimension(0)
+		{
+		}
+		
+		box(double size, string name) :
 			m_size(size),
 			m_dimension(0),
 			m_name(name)
@@ -50,7 +57,7 @@ class box {
 			os << "#" << setw(6) << setfill('0') << hex << c;
 			m_color = os.str();
 		}
-		
+
 		// calculate the box sizes for the current tree
 		void map(point new_extent, point new_origin) {
 			m_extent = new_extent;
@@ -60,6 +67,8 @@ class box {
 
 		// fix the child areas to match the parent
 		void remap() {
+			fix_dimensions();
+			resize();
 			double start = m_origin[m_dimension];
 			double ratio = m_extent[m_dimension] / m_size;
 			for (size_t i = 0; i < m_children.size(); ++i) {
@@ -79,15 +88,44 @@ class box {
 			}
 		}
 
+		void resize() {
+			if (m_children.size() == 0) {
+				return;
+			}
+
+			m_size = 0.0;
+			for (size_t i = 0; i < m_children.size(); ++i) {
+				m_children[i].resize();
+				m_size += m_children[i].m_size;
+			}
+		}
+
 		// the size of the box and children should be kept up to date
 		double size() {
 			return m_size;
 		}
 
 		void add(box b) {
-			b.adjust_dimension(1);
 			m_children.push_back(b);
 			m_size += b.m_size;
+		}
+
+		void insert(int pos, box b) {
+			m_children.insert(m_children.begin()+pos, b);
+			m_size += b.m_size;
+		}
+
+		template <typename... Args>
+		void add(box b, Args... args) {
+			add(b);
+			add(args...);
+		}
+
+		void fix_dimensions() {
+			for (int i = 0; i < m_children.size(); ++i) {
+				m_children[i].m_dimension = next_dimension();
+				m_children[i].fix_dimensions();
+			}
 		}
 
 		double origin() {
@@ -106,15 +144,16 @@ class box {
 			return m_children.size();
 		}
 
-		void adjust_dimension(int change = 1) {
-			m_dimension = next_dimension(change);
-			for (int i = 0; i < m_children.size(); ++i) {
-				m_children[i].adjust_dimension(change);
-			}
-		}
-
 		int next_dimension(int change = 1) const {
 			return (m_dimension + change) % dimensions;
+		}
+
+		void clear() {
+			m_children.clear();
+			m_size = 0;
+			m_desired.clear();
+            m_name = string();
+            m_color = string();
 		}
 
         void split(size_t index) {
@@ -138,7 +177,7 @@ class box {
 			double best_score = score();
 			box best_box = *this;
 			if (top) cerr << "initial score: " << best_score << endl;
-			for (int r = 0; r < min(5ul,m_children.size()-1); ++r) {
+			for (int r = 0; r < min(4ul,m_children.size()-1); ++r) {
 				if (top) cerr << "Shuffle: " << r << endl;
 				random_shuffle(m_children.begin(), m_children.end());
 				
@@ -159,14 +198,56 @@ class box {
 					b.child(1).balance();
 					
 					double s = b.score();
-					if (top) cerr << "new score: " << s << endl;
 					if (s < best_score) {
+						if (top) cerr << "new score: " << s << endl;
 						best_score = s;
 						best_box = b;
 						if (top) best_box.write_svg("out.svg");
 					}
 				}
 			}
+			*this = best_box;
+		}
+
+		void append(box new_box) {			
+			box best_box;
+			double best_score = 0;
+			bool best = false;
+			
+			if (m_children.size() == 0) {
+				box b = *this;
+				clear();
+				add(b);
+			}
+
+			for (int i = 0; i <= m_children.size(); ++i) {
+				box b = *this;
+				b.insert(i, new_box);
+
+				b.remap();
+				double score = b.score();
+				if (!best || score < best_score) {
+					best = true;
+					best_box = b;
+					best_score = score;
+				}
+			}
+
+			if (m_children.size() > 1) {
+				for (int i = 0; i < m_children.size(); ++i) {
+					box b = *this;
+					b.m_children[i].append(new_box);
+	
+					b.remap();
+					double score = b.score();
+					if (!best || score < best_score) {
+						best = true;
+						best_box = b;
+						best_score = score;
+					}
+				}
+			}
+							
 			*this = best_box;
 		}
 
@@ -201,20 +282,24 @@ class box {
 		}
 
 		double score() {
-			if (m_children.size() == 0) {				
-				double dist = 100.0;
-				for (int i = 0; i < m_desired.size(); ++i) {
-					dist = min(dist, distance(center(), m_desired[0]));
+			if (m_children.size() == 0) {
+                double dist = numeric_limits<double>::max();
+				if (m_desired.size() > 0) {
+					for (int i = 0; i < m_desired.size(); ++i) {
+						dist = min(dist, distance(center(), m_desired[i]));
+					}
+				} else {
+					dist = 0;
 				}
 
 				double ratio;
 				if (m_extent[0] > m_extent[1]) {
-					ratio = m_extent[0] / m_extent[1];
+					ratio = m_extent[0] / m_extent[1] - 1.0;
 				} else {
-					ratio = m_extent[1] / m_extent[0];
+					ratio = m_extent[1] / m_extent[0] - 1.0;
 				}
 
-				return ratio + dist / 4;// / m_size;
+				return ratio*10 + dist;
 			} else {
 				double sum = 0.0;
 				for (int i = 0; i < m_children.size(); ++i) {
@@ -278,23 +363,24 @@ class box {
 			ostringstream os;
 			if (m_children.size() == 0 && m_desired.size() > 0) {
 				for (int i = 0; i < m_desired.size(); ++i) {
-					if (contains(m_desired[i])) {
+					//if (contains(m_desired[i])) {
 						os << "  <circle ";
 						os << attr("cx", m_desired[i][0]+offset[0]);
 						os << attr("cy", m_desired[i][1]+offset[1]);
-						os << attr("r", 4);
+						os << attr("r", contains(m_desired[i]) ? 10 : 3);
 						os << attr("fill", m_color);
 						os << attr("stroke", "black");
 						os << "/>\n";
-					}
+						//}
+						/*
 					os << "  <line ";
 					os << attr("x1", m_desired[i][0]+offset[0]);
 					os << attr("y1", m_desired[i][1]+offset[1]);
 					os << attr("x2", m_origin[0]+m_extent[0]/2+offset[0]);
 					os << attr("y2", m_origin[1]+m_extent[1]/2+offset[1]);
 					os << attr("stroke", "black");
-					os << "/>";
-
+					os << "/>";*/
+					
 					os << "  <circle ";
 					os << attr("cx", m_origin[0]+m_extent[0]/2+offset[0]);
 					os << attr("cy", m_origin[1]+m_extent[1]/2+offset[1]);
@@ -318,6 +404,7 @@ class box {
 				}
 				os << "{ ";
 				os << json_field("name", m_name) << ",";
+				os << json_field("dimension", m_dimension) << ",";
 				os << json_field("value", m_size) << " }";
 			} else {
 				for (int i = 0; i < level; ++i) {
@@ -362,7 +449,7 @@ class box {
 		}
 
 		void write_svg(string filename) {
-			ofstream svg("out.svg");
+			ofstream svg(filename);
 			svg << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			svg << "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" "
 				"\"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n";
@@ -371,6 +458,8 @@ class box {
 			svg << point_svg();
 			svg << "</svg>\n";
 		}
+
+		string name() { return m_name; }
 
 	private:
 		vector<box> m_children;
@@ -383,50 +472,131 @@ class box {
 		vector<point> m_desired;
 };
 
-box all;
-
-void add_box(int size, string name,
-	int dx0, int dy0,
-	int dx1, int dy1,
-	int dx2, int dy2) {
-	box b(size, name);
-	box::point d;
-	d[0] = dx0; d[1] = dy0; b.add_desired(d);
-	d[0] = dx1; d[1] = dy1; b.add_desired(d);
-	d[0] = dx2; d[1] = dy2; b.add_desired(d);
-	all.add(b);
+void make_box_impl(box& rval)
+{
 }
 
-void add_box(int size, string name) {
-	box b(size, name);
-	all.add(b);
+template <typename... Args>
+void make_box_impl(box& rval, box b, Args... args)
+{
+	rval.add(b);
+	make_box_impl(rval, args...);
+}
+
+template <typename... Args>
+box make_box(Args... args)
+{
+	box rval;
+	make_box_impl(rval, args...);
+	return rval;
+}
+
+vector<box> all;
+
+void add_box_impl(box& b) {
+	all.push_back(b);
+}
+
+template <typename... Args>
+void add_box_impl(box& b, int x, int y, Args... args) {
+	box::point d;
+	d[0] = x;
+	d[1] = y;
+	b.add_desired(d);
+	add_box_impl(b, args...);
+}
+
+template <typename... Args>
+void add_box(int size, string name, Args... args) {
+	box b(size,name);
+	add_box_impl(b, args...);
 }
 
 int main() {
 	srand(10);
 
 	box::point origin = {0,0}, extent = {1268,425};
-	
-	add_box(110, "mdtommyd", 332, 372, 891, 54, 1214, 392);
-	add_box(35 , "lhealy");
-	add_box(60 , "joshg");
+
+	add_box(150, "mdtommyd", 332, 372, 891, 54, 1214, 392);
+	add_box(35, "lhealy");
+	add_box(60, "joshg");
 	add_box(110, "tmerrill", 673, 83, 120, 115, 863, 394);
-	add_box(60 , "mchackett");
-	add_box(35 , "rchrastil", 1127, 38, 332, 350, 1229, 388);
-	add_box(110, "hollyl");
-	add_box(60 , "clarkh");
-	add_box(60 , "jkelly");
+	add_box(60, "mchackett");
+
+	add_box(35, "rchrastil", 1127, 38, 332, 350, 1229, 388);
+	add_box(110, "hollyl", 340, 424, 726, 401, 454, 188);
+	add_box(60, "clarkh");
+	add_box(60, "jkelly");
 	add_box(150, "chilton", 346, 345, 650, 220, 846, 364);
-	add_box(35 , "aneubert");
-	add_box(60 , "garyl");
-	add_box(60 , "sean");
+
+	add_box(35, "aneubert");
+	add_box(60, "garyl");
+	add_box(60, "sean");
 	add_box(510, "rsmith");
 	add_box(260, "shawnN");
-	add_box(60 , "dmoore", 306, 369, 1095, 32, 1006, 400);
 
-	all.map(extent, origin);
+	add_box(60, "dmoore", 306, 369, 1095, 32, 1006, 400);
+
+	double best_score;
+	bool best = false;
+
+	int counter = 0;
+	while (true) {
+		if (counter % 1000 == 0) {
+			cout << "Shuffles: " << counter << endl;
+		}
+		++counter;
+
+		random_shuffle(all.begin(), all.end());
+		
+		box test = all[0];
+		test.map(extent, origin);
+		for (int i = 1; i < all.size(); ++i) {
+			test.append(all[i]);
+		}
+		double score = test.score();
+		if (!best || score < best_score) {
+			best_score = score;
+			best = true;
+			cout << "Score: " << best_score << endl;
+			test.write_svg("out.svg");
+
+			ofstream flat("flat.json");
+			flat << "[" << endl;
+			flat << test.flat_json() << endl;
+			flat << "]" << endl;
+		}
+	}
+
+    /*
+    all.map(extent, origin);
 	all.balance(true);
 	all.map(extent, origin);
+	*/
+
+	/*
+    all = box(35, "lhealy");
+    all.map(extent, origin);
+    add_box(35, "aneubert");
+    add_box(60, "mchackett");
+    add_box(60, "garyl");
+    add_box(60, "sean");
+    add_box(60, "jkelly");
+    add_box(60, "joshg");
+    add_box(60, "clarkh");
+    add_box(260, "shawnN");
+    add_box(510, "rsmith");
+    add_box(35, "rchrastil", 1127, 38, 332, 350, 1229, 388);
+    add_box(60, "dmoore", 306, 369, 1095, 32, 1006, 400);
+    add_box(110, "tmerrill", 673, 83, 120, 115, 863, 394);
+    add_box(110, "hollyl", 340, 424, 726, 401, 454, 188);
+    add_box(150, "chilton", 346, 345, 650, 220, 846, 364);
+    add_box(150, "mdtommyd", 332, 372, 891, 54, 1214, 392);
+    */
+
+	/*
+    all.map(extent, origin);
+	all.write_svg("out.svg");
 
 	ofstream json("out.json");
 	json << all.json() << endl;
@@ -435,5 +605,5 @@ int main() {
 	flat << "[" << endl;
 	flat << all.flat_json() << endl;
 	flat << "]" << endl;
-
+	*/
 }
