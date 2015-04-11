@@ -526,7 +526,7 @@ int main() {
 	add_box(35, "rchrastil", 1127, 38, 332, 350, 1229, 388);
 	add_box(110, "hollyl", 340, 424, 726, 401, 454, 188);
 	add_box(60, "clarkh");
-	add_box(60, "jkelly");
+	add_box(60, "jkelly", 343, 60, 1145, 71, 793, 212);
 	add_box(150, "chilton", 346, 345, 650, 220, 846, 364);
 
 	add_box(35, "aneubert");
@@ -537,6 +537,7 @@ int main() {
 
 	add_box(60, "dmoore", 306, 369, 1095, 32, 1006, 400);
 	add_box(260, "JohnS");
+	add_box(60, "JudithM");
 
 	double best_score;
 	bool best = false;
