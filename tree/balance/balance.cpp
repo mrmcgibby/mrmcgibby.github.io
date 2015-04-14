@@ -531,13 +531,13 @@ int main() {
 
 	add_box(35, "aneubert");
 	add_box(60, "garyl");
-	add_box(60, "sean");
+	add_box(60, "sean", 334, 61, 323, 370, 802, 345);
 	add_box(510, "rsmith");
 	add_box(260, "shawnN");
 
 	add_box(60, "dmoore", 306, 369, 1095, 32, 1006, 400);
 	add_box(260, "JohnS");
-	add_box(60, "JudithM");
+	add_box(60, "JudithM", 127, 184, 126, 75, 463, 374);
 
 	double best_score;
 	bool best = false;
