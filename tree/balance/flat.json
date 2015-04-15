@@ -1,36 +1,39 @@
 [
-{ "name":"rsmith","x": 0,"y": 0,"width": 254.598,"height": 425,"value": 510 },
-{ "name":"jkelly","x": 254.598,"y": 0,"width": 123.555,"height": 103.03,"value": 60 },
-{ "name":"mchackett","x": 378.154,"y": 0,"width": 123.555,"height": 103.03,"value": 60 }
+{ "name":"rsmith","x": 0,"y": 0,"width": 244.03,"height": 425,"value": 510 },
+{ "name":"sean","x": 244.03,"y": 0,"width": 153.117,"height": 79.6875,"value": 60 },
+{ "name":"AMAnderson","x": 244.03,"y": 79.6875,"width": 153.117,"height": 345.312,"value": 260 }
 ,
-{ "name":"JaniceW","x": 254.598,"y": 103.03,"width": 123.555,"height": 188.889,"value": 110 },
-{ "name":"hollyl","x": 378.154,"y": 103.03,"width": 123.555,"height": 188.889,"value": 110 }
+{ "name":"KellyA","x": 397.147,"y": 0,"width": 71.7736,"height": 99.1667,"value": 35 },
+{ "name":"JohnF","x": 468.921,"y": 0,"width": 71.7736,"height": 99.1667,"value": 35 }
 ,
-{ "name":"sean","x": 254.598,"y": 291.919,"width": 95.6556,"height": 133.081,"value": 60 },
-{ "name":"aneubert","x": 350.254,"y": 291.919,"width": 55.7991,"height": 133.081,"value": 35 },
-{ "name":"JudithM","x": 406.053,"y": 291.919,"width": 95.6556,"height": 133.081,"value": 60 }
+{ "name":"hollyl","x": 397.147,"y": 99.1667,"width": 143.547,"height": 155.833,"value": 110 },
+{ "name":"lhealy","x": 397.147,"y": 255,"width": 83.7358,"height": 85,"value": 35 },
+{ "name":"BlisD","x": 480.883,"y": 255,"width": 59.8113,"height": 85,"value": 25 }
+,
+{ "name":"JudithM","x": 397.147,"y": 340,"width": 143.547,"height": 85,"value": 60 }
+,
+{ "name":"garyl","x": 540.694,"y": 0,"width": 74.3068,"height": 164.205,"value": 60 },
+{ "name":"tmerrill","x": 615.001,"y": 0,"width": 136.229,"height": 164.205,"value": 110 }
+,
+{ "name":"chilton","x": 540.694,"y": 164.205,"width": 210.536,"height": 144.886,"value": 150 },
+{ "name":"clarkh","x": 540.694,"y": 309.091,"width": 105.268,"height": 115.909,"value": 60 },
+{ "name":"joshg","x": 645.962,"y": 309.091,"width": 105.268,"height": 115.909,"value": 60 }
 
 ,
-{ "name":"joshg","x": 501.709,"y": 0,"width": 107.574,"height": 118.336,"value": 60 },
-{ "name":"lhealy","x": 501.709,"y": 118.336,"width": 107.574,"height": 69.0294,"value": 35 }
+{ "name":"mdtommyd","x": 751.23,"y": 0,"width": 235.258,"height": 129.661,"value": 150 },
+{ "name":"mchackett","x": 986.488,"y": 0,"width": 94.1031,"height": 129.661,"value": 60 },
+{ "name":"jkelly","x": 1080.59,"y": 0,"width": 94.1031,"height": 129.661,"value": 60 }
 ,
-{ "name":"tmerrill","x": 609.283,"y": 0,"width": 124.56,"height": 187.366,"value": 110 }
-,
-{ "name":"AMAnderson","x": 501.709,"y": 187.366,"width": 232.134,"height": 237.634,"value": 260 }
-,
-{ "name":"mdtommyd","x": 733.843,"y": 0,"width": 309.512,"height": 102.823,"value": 150 },
-{ "name":"shawnN","x": 733.843,"y": 102.823,"width": 309.512,"height": 178.226,"value": 260 },
-{ "name":"chilton","x": 733.843,"y": 281.048,"width": 221.08,"height": 143.952,"value": 150 },
-{ "name":"clarkh","x": 954.922,"y": 281.048,"width": 88.4319,"height": 143.952,"value": 60 }
+{ "name":"shawnN","x": 751.23,"y": 129.661,"width": 179.025,"height": 295.339,"value": 260 },
+{ "name":"JohnS","x": 930.256,"y": 129.661,"width": 244.439,"height": 216.305,"value": 260 },
+{ "name":"dmoore","x": 930.256,"y": 345.966,"width": 154.382,"height": 79.0344,"value": 60 },
+{ "name":"aneubert","x": 1084.64,"y": 345.966,"width": 90.0563,"height": 79.0344,"value": 35 }
+
+
 
 ,
-{ "name":"dmoore","x": 1043.35,"y": 0,"width": 141.881,"height": 89.7222,"value": 60 },
-{ "name":"KellyA","x": 1185.24,"y": 0,"width": 82.7642,"height": 89.7222,"value": 35 }
-,
-{ "name":"JohnS","x": 1043.35,"y": 89.7222,"width": 224.646,"height": 245.556,"value": 260 },
-{ "name":"garyl","x": 1043.35,"y": 335.278,"width": 141.881,"height": 89.7222,"value": 60 },
-{ "name":"rchrastil","x": 1185.24,"y": 335.278,"width": 82.7642,"height": 89.7222,"value": 35 }
-
+{ "name":"JaniceW","x": 1174.69,"y": 0,"width": 93.3057,"height": 348.718,"value": 160 },
+{ "name":"rchrastil","x": 1174.69,"y": 348.718,"width": 93.3057,"height": 76.2821,"value": 35 }
 
 
 ]
