@@ -538,6 +538,10 @@ int main() {
 	add_box(60, "dmoore", 306, 369, 1095, 32, 1006, 400);
 	add_box(260, "JohnS");
 	add_box(60, "JudithM", 127, 184, 126, 75, 463, 374);
+	add_box(260, "AMAnderson");
+	add_box(35, "KellyA");
+
+	add_box(110, "JaniceW");
 
 	double best_score;
 	bool best = false;
