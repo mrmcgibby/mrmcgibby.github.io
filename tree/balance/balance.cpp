@@ -548,6 +548,8 @@ int main() {
 	add_box(35, "JohnF");
 	add_box(25, "BlisD");
 	add_box(35, "HopeF");
+	add_box(60, "Samways");
+
 	add_box(260, "JStein");
 
 	double best_score;
