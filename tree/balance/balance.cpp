@@ -287,6 +287,9 @@ class box {
 				if (m_desired.size() > 0) {
 					for (int i = 0; i < m_desired.size(); ++i) {
 						dist = min(dist, distance(center(), m_desired[i]));
+						if (contains(m_desired[i])) { // prefer boxes where point are actually in the middle
+							dist = dist / 2.0;
+						}
 					}
 				} else {
 					dist = 0;
@@ -544,6 +547,8 @@ int main() {
 	add_box(160, "JaniceW");
 	add_box(35, "JohnF");
 	add_box(25, "BlisD");
+	add_box(35, "HopeF");
+	add_box(260, "JStein");
 
 	double best_score;
 	bool best = false;
