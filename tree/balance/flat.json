@@ -1,42 +1,42 @@
 [
-{ "name":"JStein","x": 0,"y": 0,"width": 284.825,"height": 163.704,"value": 260 },
-{ "name":"lhealy","x": 0,"y": 163.704,"width": 64.3154,"height": 97.5926,"value": 35 },
-{ "name":"JudithM","x": 64.3154,"y": 163.704,"width": 110.255,"height": 97.5926,"value": 60 },
-{ "name":"Samways","x": 174.57,"y": 163.704,"width": 110.255,"height": 97.5926,"value": 60 }
+{ "name":"JaniceW","x": 0,"y": 0,"width": 165.649,"height": 161.905,"value": 160 },
+{ "name":"AMAnderson","x": 0,"y": 161.905,"width": 165.649,"height": 263.095,"value": 260 }
 ,
-{ "name":"AMAnderson","x": 0,"y": 261.296,"width": 284.825,"height": 163.704,"value": 260 }
+{ "name":"Samways","x": 165.649,"y": 0,"width": 103.037,"height": 97.6077,"value": 60 },
+{ "name":"sean","x": 268.686,"y": 0,"width": 103.037,"height": 97.6077,"value": 60 }
 ,
-{ "name":"sean","x": 284.825,"y": 0,"width": 83.5889,"height": 128.726,"value": 60 },
-{ "name":"garyl","x": 284.825,"y": 128.726,"width": 83.5889,"height": 128.726,"value": 60 }
+{ "name":"JStein","x": 165.649,"y": 97.6077,"width": 206.075,"height": 211.483,"value": 260 }
 ,
-{ "name":"KellyA","x": 368.414,"y": 0,"width": 62.6917,"height": 100.12,"value": 35 },
-{ "name":"aneubert","x": 431.106,"y": 0,"width": 62.6917,"height": 100.12,"value": 35 }
+{ "name":"hollyl","x": 371.723,"y": 0,"width": 140.998,"height": 309.091,"value": 260 }
 ,
-{ "name":"hollyl","x": 368.414,"y": 100.12,"width": 125.383,"height": 157.332,"value": 110 }
-,
-{ "name":"JaniceW","x": 493.798,"y": 0,"width": 111.452,"height": 257.452,"value": 160 },
-{ "name":"tmerrill","x": 605.25,"y": 0,"width": 118.418,"height": 166.587,"value": 110 },
-{ "name":"clarkh","x": 605.25,"y": 166.587,"width": 118.418,"height": 90.8654,"value": 60 }
+{ "name":"mchackett","x": 165.649,"y": 309.091,"width": 86.7683,"height": 115.909,"value": 60 },
+{ "name":"dmoore","x": 252.417,"y": 309.091,"width": 86.7683,"height": 115.909,"value": 60 },
+{ "name":"clarkh","x": 339.185,"y": 309.091,"width": 86.7683,"height": 115.909,"value": 60 },
+{ "name":"JudithM","x": 425.953,"y": 309.091,"width": 86.7683,"height": 115.909,"value": 60 }
 
 ,
-{ "name":"chilton","x": 284.825,"y": 257.452,"width": 160.552,"height": 167.548,"value": 150 },
-{ "name":"JohnS","x": 445.377,"y": 257.452,"width": 278.29,"height": 167.548,"value": 260 }
+{ "name":"JohnS","x": 512.722,"y": 0,"width": 264.249,"height": 164.925,"value": 260 },
+{ "name":"chilton","x": 512.722,"y": 164.925,"width": 264.249,"height": 95.1493,"value": 150 },
+{ "name":"shawnN","x": 512.722,"y": 260.075,"width": 264.249,"height": 164.925,"value": 260 }
+,
+{ "name":"mdtommyd","x": 776.97,"y": 0,"width": 209.485,"height": 120.023,"value": 150 },
+{ "name":"joshg","x": 986.456,"y": 0,"width": 83.7941,"height": 120.023,"value": 60 },
+{ "name":"rchrastil","x": 1070.25,"y": 0,"width": 132.674,"height": 44.2191,"value": 35 },
+{ "name":"jkelly","x": 1070.25,"y": 44.2191,"width": 132.674,"height": 75.8041,"value": 60 }
 
 ,
-{ "name":"joshg","x": 723.667,"y": 0,"width": 84.3927,"height": 127.5,"value": 60 },
-{ "name":"mdtommyd","x": 808.06,"y": 0,"width": 210.982,"height": 127.5,"value": 150 },
-{ "name":"dmoore","x": 1019.04,"y": 0,"width": 84.3927,"height": 127.5,"value": 60 },
-{ "name":"jkelly","x": 1103.43,"y": 0,"width": 84.3927,"height": 127.5,"value": 60 }
-,
-{ "name":"shawnN","x": 723.667,"y": 127.5,"width": 156.729,"height": 297.5,"value": 260 },
-{ "name":"rsmith","x": 880.396,"y": 127.5,"width": 307.43,"height": 297.5,"value": 510 }
+{ "name":"rsmith","x": 776.97,"y": 120.023,"width": 425.953,"height": 200.694,"value": 510 },
+{ "name":"tmerrill","x": 776.97,"y": 320.718,"width": 176.811,"height": 104.282,"value": 110 },
+{ "name":"DavidM","x": 953.781,"y": 320.718,"width": 96.4423,"height": 104.282,"value": 60 },
+{ "name":"garyl","x": 1050.22,"y": 320.718,"width": 96.4423,"height": 104.282,"value": 60 },
+{ "name":"JohnF","x": 1146.67,"y": 320.718,"width": 56.258,"height": 104.282,"value": 35 }
 
 ,
-{ "name":"JohnF","x": 1187.83,"y": 0,"width": 80.173,"height": 78.2895,"value": 35 },
-{ "name":"mchackett","x": 1187.83,"y": 78.2895,"width": 80.173,"height": 134.211,"value": 60 },
-{ "name":"BlisD","x": 1187.83,"y": 212.5,"width": 80.173,"height": 55.9211,"value": 25 },
-{ "name":"HopeF","x": 1187.83,"y": 268.421,"width": 80.173,"height": 78.2895,"value": 35 },
-{ "name":"rchrastil","x": 1187.83,"y": 346.711,"width": 80.173,"height": 78.2895,"value": 35 }
+{ "name":"BlisD","x": 1202.92,"y": 0,"width": 65.0762,"height": 64.3939,"value": 25 },
+{ "name":"lhealy","x": 1202.92,"y": 64.3939,"width": 65.0762,"height": 90.1515,"value": 35 },
+{ "name":"HopeF","x": 1202.92,"y": 154.545,"width": 65.0762,"height": 90.1515,"value": 35 },
+{ "name":"aneubert","x": 1202.92,"y": 244.697,"width": 65.0762,"height": 90.1515,"value": 35 },
+{ "name":"KellyA","x": 1202.92,"y": 334.848,"width": 65.0762,"height": 90.1515,"value": 35 }
 
 
 ]
