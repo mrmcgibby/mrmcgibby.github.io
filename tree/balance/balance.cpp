@@ -551,7 +551,8 @@ int main() {
 	add_box(60, "Samways");
 
 	add_box(260, "JStein");
-	add_box(60, "DavidM");
+	add_box(60, "DavidM", 445, 146, 302, 168, 341, 365);
+	add_box(60, "PaigeP");
 
 	double best_score;
 	bool best = false;
