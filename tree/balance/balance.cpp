@@ -520,6 +520,7 @@ int main() {
 
 	box::point origin = {0,0}, extent = {1268,425};
 
+	/*
 	add_box(150, "mdtommyd", 332, 372, 891, 54, 1214, 392);
 	add_box(35, "lhealy");
 	add_box(60, "joshg");
@@ -553,9 +554,19 @@ int main() {
 	add_box(260, "JStein");
 	add_box(60, "DavidM", 445, 146, 302, 168, 341, 365);
 	add_box(60, "PaigeP");
+	*/
 
-	double best_score;
-	bool best = false;
+	add_box(60,  "joshg");
+	add_box(110, "tmerrill",   673,  83,  120, 115,   863, 394);
+	add_box(35,  "rchrastil", 1127,  38,  332, 350,  1229, 388);
+	add_box(260, "hollyl",     340, 424/*,  726, 401,   454, 188*/);
+	add_box(60,  "sean",       334,  61,  323, 370,   802, 345);
+	add_box(60,  "dmoore",     306, 369, 1095,  32,  1006, 400);
+	add_box(260, "JStein");
+	add_box(35,  "CherryRed");
+
+	double	best_score;
+	bool	best = false;
 
 	int counter = 0;
 	while (true) {
