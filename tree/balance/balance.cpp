@@ -520,50 +520,25 @@ int main() {
 
 	box::point origin = {0,0}, extent = {1268,425};
 
-	/*
-	add_box(150, "mdtommyd", 332, 372, 891, 54, 1214, 392);
-	add_box(35, "lhealy");
 	add_box(60, "joshg");
-	add_box(110, "tmerrill", 673, 83, 120, 115, 863, 394);
-	add_box(60, "mchackett");
-
-	add_box(35, "rchrastil", 1127, 38, 332, 350, 1229, 388);
-	add_box(260, "hollyl", 340, 424);//, 726, 401, 454, 188);
-	add_box(60, "clarkh");
-	add_box(60, "jkelly", 343, 60, 1145, 71, 793, 212);
-	add_box(150, "chilton", 346, 345, 650, 220, 846, 364);
-
-	add_box(35, "aneubert");
-	add_box(60, "garyl");
-	add_box(60, "sean", 334, 61, 323, 370, 802, 345);
-	add_box(510, "rsmith");
-	add_box(260, "shawnN");
-
-	add_box(60, "dmoore", 306, 369, 1095, 32, 1006, 400);
-	add_box(260, "JohnS");
-	add_box(60, "JudithM", 127, 184, 126, 75, 463, 374);
-	add_box(260, "AMAnderson");
-	add_box(35, "KellyA", 1205, 375, 782, 216, 420, 58);
-
-	add_box(160, "JaniceW");
-	add_box(35, "JohnF");
-	add_box(25, "BlisD");
-	add_box(35, "HopeF");
-	add_box(60, "Samways");
-
+	add_box(110, "tmerrill",673,83,120,115,863,394);
+	add_box(35, "rchrastil",1127,38,332,350,1229,388);
+	add_box(260, "hollyl",340,424);
+	add_box(60, "sean",334,61,323,370,802,345);
+	add_box(60, "dmoore",306,369,1095,32,1006,400);
 	add_box(260, "JStein");
-	add_box(60, "DavidM", 445, 146, 302, 168, 341, 365);
-	add_box(60, "PaigeP");
-	*/
-
-	add_box(60,  "joshg");
-	add_box(110, "tmerrill",   673,  83,  120, 115,   863, 394);
-	add_box(35,  "rchrastil", 1127,  38,  332, 350,  1229, 388);
-	add_box(260, "hollyl",     340, 424/*,  726, 401,   454, 188*/);
-	add_box(60,  "sean",       334,  61,  323, 370,   802, 345);
-	add_box(60,  "dmoore",     306, 369, 1095,  32,  1006, 400);
-	add_box(260, "JStein");
-	add_box(35,  "CherryRed");
+	add_box(35, "CherryRed");
+	add_box(100, "AlexanderG");
+	add_box(60, "DMengel",445,146,302,168,341,365);
+	add_box(35, "AubrianneN");
+	add_box(260, "AAnderson");
+	add_box(510, "RSmith");
+	add_box(60, "JudithM",127,184,126,75,463,374);
+	add_box(110, "KatieS");
+	add_box(135, "JaniceW");
+	add_box(110, "CHilton",346,345,650,220,846,364);
+	add_box(35, "KellyA",1205,375,782,216,420,58);
+	add_box(510, "JShore");
 
 	double	best_score;
 	bool	best = false;
