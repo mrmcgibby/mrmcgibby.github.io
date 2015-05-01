@@ -539,7 +539,9 @@ int main() {
 	add_box(110, "CHilton",346,345,650,220,846,364);
 	add_box(35, "KellyA",1205,375,782,216,420,58);
 	add_box(510, "JShore");
-
+	add_box(260, "SNason");
+	add_box(60, "MHackett");
+ 
 	double	best_score;
 	bool	best = false;
 

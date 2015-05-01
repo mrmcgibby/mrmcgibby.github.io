@@ -1,73 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="162.738" height="118.056" fill="#7fd909" stroke="black" />
-  <rect x="0" y="118.056" width="162.738" height="306.944" fill="#da5b6f" stroke="black" />
-  <rect x="162.738" y="0" width="123.25" height="210.437" fill="#0428f1" stroke="black" />
-  <rect x="285.988" y="0" width="109.556" height="105.218" fill="#f12b42" stroke="black" />
-  <rect x="285.988" y="105.218" width="109.556" height="105.218" fill="#682b37" stroke="black" />
-  <rect x="162.738" y="210.437" width="232.806" height="214.563" fill="#1279f3" stroke="black" />
-  <rect x="395.544" y="0" width="74.9451" height="89.7222" fill="#da8ab3" stroke="black" />
-  <rect x="470.489" y="0" width="128.477" height="89.7222" fill="#029086" stroke="black" />
-  <rect x="395.544" y="89.7222" width="203.422" height="245.556" fill="#3794ac" stroke="black" />
-  <rect x="395.544" y="335.278" width="128.477" height="89.7222" fill="#409700" stroke="black" />
-  <rect x="524.021" y="335.278" width="74.9451" height="89.7222" fill="#e1f65d" stroke="black" />
-  <rect x="598.966" y="0" width="149.176" height="141.667" fill="#5e4d93" stroke="black" />
-  <rect x="598.966" y="141.667" width="149.176" height="141.667" fill="#123b47" stroke="black" />
-  <rect x="598.966" y="283.333" width="149.176" height="141.667" fill="#6e4f42" stroke="black" />
-  <rect x="748.143" y="0" width="230.545" height="425" fill="#c5a45d" stroke="black" />
-  <rect x="978.688" y="0" width="133.529" height="86.3281" fill="#448bea" stroke="black" />
-  <rect x="1112.22" y="0" width="77.8917" height="86.3281" fill="#2cc0c8" stroke="black" />
-  <rect x="1190.11" y="0" width="77.8917" height="86.3281" fill="#f26456" stroke="black" />
-  <rect x="978.688" y="86.3281" width="289.312" height="338.672" fill="#a2b9a7" stroke="black" />
-  <circle cx="334" cy="61" r="10" fill="#f12b42" stroke="black" />
-  <circle cx="340.766" cy="52.6092" r="5" stroke="black" />
-  <circle cx="323" cy="370" r="3" fill="#f12b42" stroke="black" />
-  <circle cx="340.766" cy="52.6092" r="5" stroke="black" />
-  <circle cx="802" cy="345" r="3" fill="#f12b42" stroke="black" />
-  <circle cx="340.766" cy="52.6092" r="5" stroke="black" />
-  <circle cx="445" cy="146" r="3" fill="#682b37" stroke="black" />
-  <circle cx="340.766" cy="157.828" r="5" stroke="black" />
-  <circle cx="302" cy="168" r="10" fill="#682b37" stroke="black" />
-  <circle cx="340.766" cy="157.828" r="5" stroke="black" />
-  <circle cx="341" cy="365" r="3" fill="#682b37" stroke="black" />
-  <circle cx="340.766" cy="157.828" r="5" stroke="black" />
-  <circle cx="340" cy="424" r="10" fill="#1279f3" stroke="black" />
-  <circle cx="279.141" cy="317.718" r="5" stroke="black" />
-  <circle cx="1205" cy="375" r="3" fill="#da8ab3" stroke="black" />
-  <circle cx="433.016" cy="44.8611" r="5" stroke="black" />
-  <circle cx="782" cy="216" r="3" fill="#da8ab3" stroke="black" />
-  <circle cx="433.016" cy="44.8611" r="5" stroke="black" />
-  <circle cx="420" cy="58" r="10" fill="#da8ab3" stroke="black" />
-  <circle cx="433.016" cy="44.8611" r="5" stroke="black" />
+  <rect x="0" y="0" width="69.5131" height="86.828" fill="#e1f65d" stroke="black" />
+  <rect x="69.5131" y="0" width="119.165" height="86.828" fill="#409700" stroke="black" />
+  <rect x="0" y="86.828" width="188.678" height="100.538" fill="#5e4d93" stroke="black" />
+  <rect x="0" y="187.366" width="188.678" height="237.634" fill="#3794ac" stroke="black" />
+  <rect x="188.678" y="0" width="96.5491" height="107.167" fill="#61cdf0" stroke="black" />
+  <rect x="285.228" y="0" width="96.5491" height="107.167" fill="#f12b42" stroke="black" />
+  <rect x="188.678" y="107.167" width="71.1415" height="84.8405" fill="#f26456" stroke="black" />
+  <rect x="259.82" y="107.167" width="121.957" height="84.8405" fill="#682b37" stroke="black" />
+  <rect x="188.678" y="192.008" width="193.098" height="98.2364" fill="#6e4f42" stroke="black" />
+  <rect x="381.777" y="0" width="139.625" height="123.508" fill="#7fd909" stroke="black" />
+  <rect x="381.777" y="123.508" width="139.625" height="166.736" fill="#0428f1" stroke="black" />
+  <rect x="188.678" y="290.244" width="332.723" height="134.756" fill="#1279f3" stroke="black" />
+  <rect x="521.402" y="0" width="210.995" height="212.5" fill="#8edd9d" stroke="black" />
+  <rect x="521.402" y="212.5" width="210.995" height="212.5" fill="#da5b6f" stroke="black" />
+  <rect x="732.397" y="0" width="267.802" height="328.409" fill="#c5a45d" stroke="black" />
+  <rect x="1000.2" y="0" width="267.802" height="328.409" fill="#a2b9a7" stroke="black" />
+  <rect x="732.397" y="328.409" width="196.388" height="96.5909" fill="#123b47" stroke="black" />
+  <rect x="928.785" y="328.409" width="107.121" height="96.5909" fill="#448bea" stroke="black" />
+  <rect x="1035.91" y="328.409" width="107.121" height="96.5909" fill="#029086" stroke="black" />
+  <rect x="1143.03" y="328.409" width="62.487" height="96.5909" fill="#da8ab3" stroke="black" />
+  <rect x="1205.51" y="328.409" width="62.487" height="96.5909" fill="#2cc0c8" stroke="black" />
   <circle cx="127" cy="184" r="3" fill="#409700" stroke="black" />
-  <circle cx="459.782" cy="380.139" r="5" stroke="black" />
-  <circle cx="126" cy="75" r="3" fill="#409700" stroke="black" />
-  <circle cx="459.782" cy="380.139" r="5" stroke="black" />
-  <circle cx="463" cy="374" r="10" fill="#409700" stroke="black" />
-  <circle cx="459.782" cy="380.139" r="5" stroke="black" />
-  <circle cx="673" cy="83" r="10" fill="#5e4d93" stroke="black" />
-  <circle cx="673.554" cy="70.8333" r="5" stroke="black" />
-  <circle cx="120" cy="115" r="3" fill="#5e4d93" stroke="black" />
-  <circle cx="673.554" cy="70.8333" r="5" stroke="black" />
+  <circle cx="129.096" cy="43.414" r="5" stroke="black" />
+  <circle cx="126" cy="75" r="10" fill="#409700" stroke="black" />
+  <circle cx="129.096" cy="43.414" r="5" stroke="black" />
+  <circle cx="463" cy="374" r="3" fill="#409700" stroke="black" />
+  <circle cx="129.096" cy="43.414" r="5" stroke="black" />
+  <circle cx="673" cy="83" r="3" fill="#5e4d93" stroke="black" />
+  <circle cx="94.3392" cy="137.097" r="5" stroke="black" />
+  <circle cx="120" cy="115" r="10" fill="#5e4d93" stroke="black" />
+  <circle cx="94.3392" cy="137.097" r="5" stroke="black" />
   <circle cx="863" cy="394" r="3" fill="#5e4d93" stroke="black" />
-  <circle cx="673.554" cy="70.8333" r="5" stroke="black" />
+  <circle cx="94.3392" cy="137.097" r="5" stroke="black" />
+  <circle cx="334" cy="61" r="10" fill="#f12b42" stroke="black" />
+  <circle cx="333.502" cy="53.5835" r="5" stroke="black" />
+  <circle cx="323" cy="370" r="3" fill="#f12b42" stroke="black" />
+  <circle cx="333.502" cy="53.5835" r="5" stroke="black" />
+  <circle cx="802" cy="345" r="3" fill="#f12b42" stroke="black" />
+  <circle cx="333.502" cy="53.5835" r="5" stroke="black" />
+  <circle cx="445" cy="146" r="3" fill="#682b37" stroke="black" />
+  <circle cx="320.798" cy="149.587" r="5" stroke="black" />
+  <circle cx="302" cy="168" r="10" fill="#682b37" stroke="black" />
+  <circle cx="320.798" cy="149.587" r="5" stroke="black" />
+  <circle cx="341" cy="365" r="3" fill="#682b37" stroke="black" />
+  <circle cx="320.798" cy="149.587" r="5" stroke="black" />
+  <circle cx="340" cy="424" r="10" fill="#1279f3" stroke="black" />
+  <circle cx="355.04" cy="357.622" r="5" stroke="black" />
   <circle cx="346" cy="345" r="3" fill="#123b47" stroke="black" />
-  <circle cx="673.554" cy="212.5" r="5" stroke="black" />
-  <circle cx="650" cy="220" r="10" fill="#123b47" stroke="black" />
-  <circle cx="673.554" cy="212.5" r="5" stroke="black" />
-  <circle cx="846" cy="364" r="3" fill="#123b47" stroke="black" />
-  <circle cx="673.554" cy="212.5" r="5" stroke="black" />
+  <circle cx="830.591" cy="376.705" r="5" stroke="black" />
+  <circle cx="650" cy="220" r="3" fill="#123b47" stroke="black" />
+  <circle cx="830.591" cy="376.705" r="5" stroke="black" />
+  <circle cx="846" cy="364" r="10" fill="#123b47" stroke="black" />
+  <circle cx="830.591" cy="376.705" r="5" stroke="black" />
   <circle cx="306" cy="369" r="3" fill="#448bea" stroke="black" />
-  <circle cx="1045.45" cy="43.1641" r="5" stroke="black" />
-  <circle cx="1095" cy="32" r="10" fill="#448bea" stroke="black" />
-  <circle cx="1045.45" cy="43.1641" r="5" stroke="black" />
-  <circle cx="1006" cy="400" r="3" fill="#448bea" stroke="black" />
-  <circle cx="1045.45" cy="43.1641" r="5" stroke="black" />
-  <circle cx="1127" cy="38" r="10" fill="#2cc0c8" stroke="black" />
-  <circle cx="1151.16" cy="43.1641" r="5" stroke="black" />
+  <circle cx="982.345" cy="376.705" r="5" stroke="black" />
+  <circle cx="1095" cy="32" r="3" fill="#448bea" stroke="black" />
+  <circle cx="982.345" cy="376.705" r="5" stroke="black" />
+  <circle cx="1006" cy="400" r="10" fill="#448bea" stroke="black" />
+  <circle cx="982.345" cy="376.705" r="5" stroke="black" />
+  <circle cx="1205" cy="375" r="10" fill="#da8ab3" stroke="black" />
+  <circle cx="1174.27" cy="376.705" r="5" stroke="black" />
+  <circle cx="782" cy="216" r="3" fill="#da8ab3" stroke="black" />
+  <circle cx="1174.27" cy="376.705" r="5" stroke="black" />
+  <circle cx="420" cy="58" r="3" fill="#da8ab3" stroke="black" />
+  <circle cx="1174.27" cy="376.705" r="5" stroke="black" />
+  <circle cx="1127" cy="38" r="3" fill="#2cc0c8" stroke="black" />
+  <circle cx="1236.76" cy="376.705" r="5" stroke="black" />
   <circle cx="332" cy="350" r="3" fill="#2cc0c8" stroke="black" />
-  <circle cx="1151.16" cy="43.1641" r="5" stroke="black" />
-  <circle cx="1229" cy="388" r="3" fill="#2cc0c8" stroke="black" />
-  <circle cx="1151.16" cy="43.1641" r="5" stroke="black" />
+  <circle cx="1236.76" cy="376.705" r="5" stroke="black" />
+  <circle cx="1229" cy="388" r="10" fill="#2cc0c8" stroke="black" />
+  <circle cx="1236.76" cy="376.705" r="5" stroke="black" />
 </svg>
